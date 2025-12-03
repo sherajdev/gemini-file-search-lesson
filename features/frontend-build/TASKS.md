@@ -2,13 +2,13 @@
 
 **Project:** Next.js Frontend for Gemini File Search API
 **Started:** 2025-12-04
-**Status:** In Progress - Phase 2 Complete
+**Status:** In Progress - Phase 3 Complete
 
 ## Progress Overview
 
 - [x] Phase 1: Project Setup (5/5) ✓
 - [x] Phase 2: Backend API Layer (7/7) ✓
-- [ ] Phase 3: Core UI Components (0/3)
+- [x] Phase 3: Core UI Components (3/3) ✓
 - [ ] Phase 4: Store Management (0/2)
 - [ ] Phase 5: File Upload (0/5)
 - [ ] Phase 6: Query Interface (0/5)
@@ -107,26 +107,26 @@
 ## Phase 3: Core UI Components
 
 ### 3.1 Base UI Components (`components/ui/`)
-- [ ] Create `components/ui/Button.tsx`
-- [ ] Create `components/ui/Card.tsx`
-- [ ] Create `components/ui/Input.tsx`
-- [ ] Create `components/ui/Select.tsx`
-- [ ] Create `components/ui/Modal.tsx`
-- [ ] Create `components/ui/Toast.tsx`
-- [ ] Create `components/ui/LoadingSpinner.tsx`
-- [ ] Style with Tailwind CSS
+- [x] Create `components/ui/Button.tsx`
+- [x] Create `components/ui/Card.tsx`
+- [x] Create `components/ui/Input.tsx`
+- [x] Create `components/ui/Select.tsx`
+- [x] Create `components/ui/Modal.tsx`
+- [x] Create `components/ui/Toast.tsx`
+- [x] Create `components/ui/LoadingSpinner.tsx`
+- [x] Style with Tailwind CSS
 
 ### 3.2 Layout Components
-- [ ] Create `app/layout.tsx` (root layout)
-- [ ] Create `app/(dashboard)/layout.tsx` (dashboard with sidebar)
-- [ ] Add navigation sidebar (Dashboard, Stores, Explorer)
-- [ ] Test navigation between pages
+- [x] Create `app/layout.tsx` (root layout)
+- [x] Create `app/(dashboard)/layout.tsx` (dashboard with sidebar)
+- [x] Add navigation sidebar (Dashboard, Stores, Explorer)
+- [x] Test navigation between pages
 
 ### 3.3 Landing Page (`app/page.tsx`)
-- [ ] Create hero section
-- [ ] Add feature highlights
-- [ ] Add "Get Started" button → `/stores`
-- [ ] Test responsive design
+- [x] Create hero section
+- [x] Add feature highlights
+- [x] Add "Get Started" button → `/stores`
+- [x] Test responsive design
 
 ---
 
@@ -340,10 +340,10 @@
 ## Task Statistics
 
 **Total Tasks:** 134
-**Completed:** 56
+**Completed:** 72
 **In Progress:** 0
-**Remaining:** 78
-**Progress:** 41.8%
+**Remaining:** 62
+**Progress:** 53.7%
 
 ---
 

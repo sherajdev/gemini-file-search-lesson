@@ -11,7 +11,8 @@
       "Bash(npx create-next-app@latest . --typescript --tailwind --app --use-npm)",
       "Bash(test:*)",
       "Bash(git push:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npm run type-check:*)"
     ],
     "deny": [],
     "ask": []
