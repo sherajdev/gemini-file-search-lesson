@@ -85,17 +85,19 @@ gemini-file-search-lesson/
 
 ## Development Status
 
-**Current Phase:** Phase 1 Complete ✅
+**Current Phase:** Phase 2 Complete ✅
 
 - [x] Next.js project setup
 - [x] Dependencies installed
 - [x] Environment configured
-- [ ] Backend API layer (Phase 2)
+- [x] Backend API layer (Phase 2) ✅
 - [ ] UI components (Phase 3)
 - [ ] Store management (Phase 4)
 - [ ] File upload (Phase 5)
 - [ ] Query interface (Phase 6)
 - [ ] Advanced features (Phase 7)
+
+**Progress:** 56/134 tasks complete (41.8%)
 
 See [features/frontend-build/TASKS.md](features/frontend-build/TASKS.md) for detailed progress tracking.
 
@@ -114,15 +116,21 @@ npm run type-check   # TypeScript type checking
 
 ## API Routes
 
-Once implemented, the following API endpoints will be available:
+✅ **All API endpoints are now implemented and functional:**
 
 - `GET /api/stores` - List all file search stores
 - `POST /api/stores` - Create a new store
 - `GET /api/stores/[storeId]` - Get store details
 - `DELETE /api/stores/[storeId]` - Delete a store
-- `POST /api/stores/[storeId]/upload` - Upload file to store
-- `POST /api/queries` - Query stores with AI
-- `GET /api/operations/[operationId]` - Check operation status
+- `POST /api/stores/[storeId]/upload` - Upload file to store with chunking & metadata
+- `POST /api/queries` - Query stores with AI-powered retrieval and citations
+- `GET /api/operations/[operationId]` - Check operation status for async operations
+
+All routes include:
+- Zod validation for request payloads
+- Comprehensive error handling
+- TypeScript type safety
+- Proper Next.js 15+ async params pattern
 
 ## Legacy CLI Examples
 
@@ -218,5 +226,6 @@ MIT License - Feel free to use this project for learning and experimentation.
 ---
 
 **Branch:** `feature/nextjs-frontend`
-**Status:** In Development - Phase 1 Complete ✅
+**Status:** In Development - Phase 2 Complete ✅
 **Last Updated:** 2025-12-04
+**Progress:** 56/134 tasks (41.8%)
