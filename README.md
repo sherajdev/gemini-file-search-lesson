@@ -1,10 +1,20 @@
 # Gemini File Search API - Testing Guide
 
-A well-organized testing environment for learning and experimenting with Google's Gemini File Search API.
+A comprehensive, well-organized testing environment for learning and experimenting with Google's Gemini File Search API. This repository provides working examples, sample data, and complete documentation to help you get started with RAG (Retrieval Augmented Generation) using Gemini.
 
 ## 🎯 Quick Start
 
 ```bash
+# Clone the repository
+git clone https://github.com/sherajdev/gemini-file-search-lesson.git
+cd gemini-file-search-lesson
+
+# Install dependencies
+npm install
+
+# Set up your API key
+# Create a .env file and add: GEMINI_API_KEY=your-api-key-here
+
 # Run the basic example
 node examples/test-file-search.js
 
@@ -14,14 +24,14 @@ node examples/advanced-examples.js
 # Test alternative upload method
 node examples/test-import-method.js
 
-# Clean up all stores
+# Clean up test stores
 node scripts/cleanup-stores.js
 ```
 
 ## 📁 Project Structure
 
 ```
-gemini-file-search/
+gemini-file-search-lesson/
 ├── data/                          # Sample test files
 │   ├── sample-product-info.txt    # Product catalog
 │   └── sample-company-policy.txt  # HR policies
@@ -38,29 +48,21 @@ gemini-file-search/
 ├── scripts/                       # Utility scripts
 │   └── cleanup-stores.js          # Delete all stores
 │
-├── .env                           # Your API key configuration
+├── .env.example                   # Environment template
 ├── .gitignore                     # Git ignore rules
 ├── package.json                   # Project dependencies
 └── README.md                      # This file
 ```
 
-## ✅ What You've Accomplished
-
-- [x] Set up Node.js environment
-- [x] Installed Gemini SDK (`@google/genai`)
-- [x] Organized project structure
-- [x] Created sample test files
-- [x] Successfully ran first File Search query!
-
 ## 🚀 Examples Overview
 
 ### 1. Basic Workflow (`examples/test-file-search.js`)
-**⭐ You've already run this successfully!**
+**⭐ Start here for your first test**
 
 Demonstrates:
 - Creating a File Search Store
 - Uploading a file directly
-- Querying with a question
+- Querying with semantic search
 - Viewing citations and grounding metadata
 
 ```bash
@@ -141,32 +143,31 @@ Responses include `groundingMetadata` showing which files/chunks were used:
 response.candidates[0].groundingMetadata.groundingChunks
 ```
 
-## 🧪 Testing Roadmap
+## 🧪 Learning Path
 
-### Beginner (You are here! ✅)
-1. ✅ Run `examples/test-file-search.js`
-2. Modify the question and re-run
-3. Try different questions about the products
+### Beginner
+1. Run `examples/test-file-search.js` - Understand basic workflow
+2. Modify the question and re-run - See how responses change
+3. Try different questions about the sample data
 
 ### Intermediate
-4. Run `examples/advanced-examples.js`
-   - See multiple files working together
-   - Understand metadata filtering
-   - Compare chunking strategies
+4. Run `examples/advanced-examples.js` - Explore advanced features
+   - Multiple files working together
+   - Metadata filtering
+   - Chunking strategies
 
-5. Run `examples/test-import-method.js`
-   - Learn the alternative upload workflow
+5. Run `examples/test-import-method.js` - Learn alternative workflows
 
 ### Advanced
 6. Create your own test files
    - Add custom documents to `data/`
    - Modify scripts to use your files
-   - Experiment with different file types
+   - Experiment with different file types (PDF, DOCX, etc.)
 
-7. Build custom scripts
+7. Build custom solutions
    - Combine multiple features
    - Create domain-specific search
-   - Implement real use cases
+   - Implement production use cases
 
 ## 💡 Sample Questions to Try
 
@@ -200,7 +201,7 @@ After testing, clean up your File Search Stores:
 node scripts/cleanup-stores.js
 ```
 
-This deletes ALL stores. Alternatively, delete specific stores:
+This deletes ALL stores. Alternatively, delete specific stores programmatically:
 
 ```javascript
 await ai.fileSearchStores.delete({
@@ -211,27 +212,33 @@ await ai.fileSearchStores.delete({
 
 ## 📝 Configuration
 
-### API Key (`.env`)
+### API Key Setup
+
+1. Get your API key from [Google AI Studio](https://aistudio.google.com/)
+2. Create a `.env` file in the project root:
+
 ```env
 GEMINI_API_KEY=your-api-key-here
 ```
 
 ### Supported File Types
-- Text: `.txt`, `.md`, `.csv`, `.json`, `.xml`
-- Documents: `.pdf`, `.docx`, `.xlsx`, `.pptx`
-- Code: `.js`, `.py`, `.java`, `.cpp`, and 100+ more
+- **Text**: `.txt`, `.md`, `.csv`, `.json`, `.xml`
+- **Documents**: `.pdf`, `.docx`, `.xlsx`, `.pptx`
+- **Code**: `.js`, `.py`, `.java`, `.cpp`, and 100+ more
 
-See [docs/gemini-file-search.md](docs/gemini-file-search.md) for complete list.
+See [docs/gemini-file-search.md](docs/gemini-file-search.md) for the complete list.
 
 ## 📚 Documentation
 
-- **[docs/gemini-file-search.md](docs/gemini-file-search.md)** - Comprehensive user guide
-- **[docs/file-search-store.md](docs/file-search-store.md)** - API reference
+- **[docs/gemini-file-search.md](docs/gemini-file-search.md)** - Comprehensive user guide with tutorials
+- **[docs/file-search-store.md](docs/file-search-store.md)** - Complete API reference
+- **[QUICK-REFERENCE.md](QUICK-REFERENCE.md)** - API cheat sheet with code patterns
+- **[INDEX.md](INDEX.md)** - Project navigation guide
 
 ## 🔗 External Resources
 
 - [Google AI Studio](https://aistudio.google.com/) - Get API key
-- [Gemini API Docs](https://ai.google.dev/gemini-api/docs/file-search)
+- [Gemini API Documentation](https://ai.google.dev/gemini-api/docs/file-search)
 - [Rate Limits](https://ai.google.dev/gemini-api/docs/rate-limits)
 - [Pricing](https://ai.google.dev/gemini-api/docs/pricing)
 
@@ -240,33 +247,42 @@ See [docs/gemini-file-search.md](docs/gemini-file-search.md) for complete list.
 ### Storage Limits (Free Tier)
 - **Max file size**: 100 MB per file
 - **Total storage**: 1 GB (Free tier)
-- **Recommended**: Keep stores under 20 GB for optimal performance
+- **Recommended**: Keep individual stores under 20 GB for optimal performance
 
 ### Pricing
-- **Indexing**: $0.15 per 1M tokens (one-time when uploading)
+- **Indexing**: $0.15 per 1M tokens (one-time cost when uploading)
 - **Storage**: Free
 - **Query embeddings**: Free
 - **Retrieved tokens**: Normal context token pricing
 
-## 🎉 Success!
+## 🌟 Features
 
-Your File Search test showed:
-- ✅ Store created successfully
-- ✅ File uploaded and indexed
-- ✅ Query answered accurately: "$299.99"
-- ✅ Citations provided automatically
+- ✅ **Well-organized structure** - Separate folders for data, examples, docs, scripts
+- ✅ **Working examples** - All scripts tested and functional
+- ✅ **Comprehensive docs** - Multiple guides for different needs
+- ✅ **Sample data** - Ready-to-use test files
+- ✅ **Clean code** - Proper error handling and path management
 
-## 🚀 What's Next?
+## 🤝 Contributing
 
-1. Run the advanced examples
-2. Create your own test documents
-3. Experiment with metadata and chunking
-4. Build a real use case!
+Contributions are welcome! Feel free to:
+- Add new example scripts
+- Improve documentation
+- Add more sample data files
+- Report issues or suggest improvements
+
+## 📄 License
+
+MIT License - Feel free to use this project for learning and experimentation.
+
+## 🙏 Acknowledgments
+
+Built with [Google's Gemini API](https://ai.google.dev/gemini-api) and the [@google/genai](https://www.npmjs.com/package/@google/genai) SDK.
 
 ---
 
-**Current Status**: ✅ Setup complete, basic test successful!
+**Getting Started**: Clone this repo, set up your API key, and run `node examples/test-file-search.js`
 
-**Your Stores**: 2 active (remember to clean up)
+**Need Help?**: Check out [QUICK-REFERENCE.md](QUICK-REFERENCE.md) for common patterns and troubleshooting
 
-Happy testing! 🎊
+Happy learning! 🚀
