@@ -1,6 +1,6 @@
 # Legacy CLI Examples
 
-This directory contains the original Node.js CLI scripts and examples from before the Next.js frontend was added.
+This directory contains the original Node.js CLI scripts, examples, and documentation from before the Next.js frontend was added.
 
 ## Contents
 
@@ -13,6 +13,17 @@ Original demonstration scripts:
 ### `scripts/`
 Utility scripts:
 - `cleanup-stores.js` - Delete all File Search Stores
+
+### `docs/`
+Original API documentation:
+- `gemini-file-search.md` - User guide and tutorials
+- `file-search-store.md` - Complete API reference
+
+### Documentation Files
+Original CLI project documentation:
+- `INDEX.md` - File index and navigation guide
+- `PROJECT-SUMMARY.md` - Original setup completion summary
+- `QUICK-REFERENCE.md` - CLI API quick reference guide
 
 ## Running Legacy Scripts
 
@@ -28,6 +39,13 @@ node legacy/examples/advanced-examples.js
 # Clean up stores
 node legacy/scripts/cleanup-stores.js
 ```
+
+## Documentation
+
+For the original CLI documentation:
+- Start with `INDEX.md` for navigation
+- Read `QUICK-REFERENCE.md` for API patterns
+- See `docs/` for detailed API documentation
 
 ## Note
 

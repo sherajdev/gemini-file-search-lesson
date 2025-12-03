@@ -9,7 +9,9 @@
       "Bash(npm install)",
       "Bash(node:*)",
       "Bash(npx create-next-app@latest . --typescript --tailwind --app --use-npm)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
