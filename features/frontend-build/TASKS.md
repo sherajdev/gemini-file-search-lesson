@@ -2,12 +2,12 @@
 
 **Project:** Next.js Frontend for Gemini File Search API
 **Started:** 2025-12-04
-**Status:** In Progress - Phase 1 Complete
+**Status:** In Progress - Phase 2 Complete
 
 ## Progress Overview
 
 - [x] Phase 1: Project Setup (5/5) ✓
-- [ ] Phase 2: Backend API Layer (0/7)
+- [x] Phase 2: Backend API Layer (7/7) ✓
 - [ ] Phase 3: Core UI Components (0/3)
 - [ ] Phase 4: Store Management (0/2)
 - [ ] Phase 5: File Upload (0/5)
@@ -54,53 +54,53 @@
 ## Phase 2: Backend API Layer
 
 ### 2.1 Core Gemini Client (`lib/api/gemini-client.ts`)
-- [ ] Create `lib/api/` directory
-- [ ] Implement `getGeminiClient()` singleton function
-- [ ] Add API key validation on initialization
-- [ ] Test client initialization
+- [x] Create `lib/api/` directory
+- [x] Implement `getGeminiClient()` singleton function
+- [x] Add API key validation on initialization
+- [x] Test client initialization
 
 ### 2.2 Store Operations (`lib/api/stores.ts`)
-- [ ] Implement `listStores()` function
-- [ ] Implement `createStore(displayName)` function
-- [ ] Implement `getStore(name)` function
-- [ ] Implement `deleteStore(name)` function
-- [ ] Test each function with legacy CLI patterns
+- [x] Implement `listStores()` function
+- [x] Implement `createStore(displayName)` function
+- [x] Implement `getStore(name)` function
+- [x] Implement `deleteStore(name)` function
+- [x] Test each function with legacy CLI patterns
 
 ### 2.3 Upload Operations (`lib/api/uploads.ts`)
-- [ ] Implement `uploadFile(params)` function
-- [ ] Handle file path, store name, chunking config
-- [ ] Handle custom metadata
-- [ ] Return operation object
-- [ ] Test upload with sample file
+- [x] Implement `uploadFile(params)` function
+- [x] Handle file path, store name, chunking config
+- [x] Handle custom metadata
+- [x] Return operation object
+- [x] Test upload with sample file
 
 ### 2.4 Query Operations (`lib/api/queries.ts`)
-- [ ] Implement `queryStores(params)` function
-- [ ] Handle multi-store queries
-- [ ] Handle metadata filtering
-- [ ] Extract answer and grounding metadata
-- [ ] Test query with uploaded file
+- [x] Implement `queryStores(params)` function
+- [x] Handle multi-store queries
+- [x] Handle metadata filtering
+- [x] Extract answer and grounding metadata
+- [x] Test query with uploaded file
 
 ### 2.5 Operation Polling (`lib/api/operations.ts`)
-- [ ] Implement `getOperation(name)` function
-- [ ] Implement `waitForOperation(operation)` helper
-- [ ] Test polling logic
+- [x] Implement `getOperation(name)` function
+- [x] Implement `waitForOperation(operation)` helper
+- [x] Test polling logic
 
 ### 2.6 TypeScript Types (`lib/types/index.ts`)
-- [ ] Create `Store` interface
-- [ ] Create `File` interface
-- [ ] Create `Query` interface
-- [ ] Create `Operation` interface
-- [ ] Create `GroundingMetadata` interface
-- [ ] Create API request/response types
+- [x] Create `Store` interface
+- [x] Create `File` interface
+- [x] Create `Query` interface
+- [x] Create `Operation` interface
+- [x] Create `GroundingMetadata` interface
+- [x] Create API request/response types
 
 ### 2.7 API Routes
-- [ ] Create `app/api/stores/route.ts` (GET, POST)
-- [ ] Create `app/api/stores/[storeId]/route.ts` (GET, DELETE)
-- [ ] Create `app/api/stores/[storeId]/upload/route.ts` (POST)
-- [ ] Create `app/api/queries/route.ts` (POST)
-- [ ] Create `app/api/operations/[operationId]/route.ts` (GET)
-- [ ] Add Zod validation to all routes
-- [ ] Test all routes with Thunder Client/Postman
+- [x] Create `app/api/stores/route.ts` (GET, POST)
+- [x] Create `app/api/stores/[storeId]/route.ts` (GET, DELETE)
+- [x] Create `app/api/stores/[storeId]/upload/route.ts` (POST)
+- [x] Create `app/api/queries/route.ts` (POST)
+- [x] Create `app/api/operations/[operationId]/route.ts` (GET)
+- [x] Add Zod validation to all routes
+- [x] Test all routes with curl
 
 ---
 
@@ -340,10 +340,10 @@
 ## Task Statistics
 
 **Total Tasks:** 134
-**Completed:** 21
+**Completed:** 56
 **In Progress:** 0
-**Remaining:** 113
-**Progress:** 15.7%
+**Remaining:** 78
+**Progress:** 41.8%
 
 ---
 
