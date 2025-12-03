@@ -1,0 +1,44 @@
+Product Catalog - TechGadgets Inc.
+
+=== SmartWatch Pro X ===
+Price: $299.99
+Features:
+- Heart rate monitoring with 24/7 tracking
+- GPS navigation with offline maps
+- 7-day battery life
+- Water resistant up to 50 meters
+- Compatible with iOS and Android
+Release Date: March 2024
+
+=== UltraBook Air ===
+Price: $1,299.99
+Features:
+- 15.6 inch 4K OLED display
+- Intel Core i7 12th Gen processor
+- 16GB RAM, 512GB SSD
+- 12-hour battery life
+- Weighs only 2.8 pounds
+- Thunderbolt 4 ports
+Release Date: January 2024
+
+=== Wireless Earbuds Elite ===
+Price: $179.99
+Features:
+- Active noise cancellation
+- 30-hour total battery life with charging case
+- IPX7 water resistance
+- Touch controls
+- Bluetooth 5.3
+- Available in black, white, and blue
+Release Date: February 2024
+
+=== 4K Smart Camera ===
+Price: $449.99
+Features:
+- 4K video recording at 60fps
+- Image stabilization
+- Wi-Fi and Bluetooth connectivity
+- Interchangeable lenses
+- Touch screen LCD
+- Voice control enabled
+Release Date: April 2024
