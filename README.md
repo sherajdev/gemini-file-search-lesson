@@ -2,6 +2,8 @@
 
 A modern web application for exploring Google's Gemini File Search API with RAG (Retrieval Augmented Generation) capabilities.
 
+![Landing Page](docs/screenshots/landing-page.png)
+
 ## Features
 
 - **File Search Store Management** - Create and manage document stores
