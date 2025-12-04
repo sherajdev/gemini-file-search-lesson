@@ -23,7 +23,14 @@ const MAX_POLL_ATTEMPTS = 100; // 5 minutes max (100 * 3s)
 export async function getOperation(operationName: string): Promise<Operation> {
   try {
     const ai = getGeminiClient();
-    const operation = await ai.operations.get({ operation: { name: operationName } } as any);
+    // The SDK expects { operation: <string or object> }
+    // Pass the operation name string as the operation parameter
+    const operation = await ai.operations.get({ operation: operationName } as any);
+
+    if (!operation) {
+      throw new Error('Operation not found');
+    }
+
     return operation as any as Operation;
   } catch (error: any) {
     throw new GeminiApiError(

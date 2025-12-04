@@ -2,7 +2,7 @@
 
 **Project:** Next.js Frontend for Gemini File Search API
 **Started:** 2025-12-04
-**Status:** In Progress - Phase 4 Complete
+**Status:** In Progress - Phase 5 Complete ✅
 
 ## Progress Overview
 
@@ -10,7 +10,7 @@
 - [x] Phase 2: Backend API Layer (7/7) ✓
 - [x] Phase 3: Core UI Components (3/3) ✓
 - [x] Phase 4: Store Management (2/2) ✓
-- [ ] Phase 5: File Upload (0/5)
+- [x] Phase 5: File Upload (5/5) ✓
 - [ ] Phase 6: Query Interface (0/5)
 - [ ] Phase 7: Advanced Features (0/3)
 - [ ] Phase 8: Polish & Testing (0/6)
@@ -155,41 +155,41 @@
 ## Phase 5: File Upload
 
 ### 5.1 Upload Page
-- [ ] Create `app/(dashboard)/stores/[storeId]/upload/page.tsx`
-- [ ] Create `components/upload/FileUploader.tsx`
-- [ ] Create `components/upload/UploadProgress.tsx`
-- [ ] Create `components/upload/ChunkingConfigurator.tsx`
-- [ ] Create `components/upload/MetadataEditor.tsx`
+- [x] Create `app/(dashboard)/stores/[storeId]/upload/page.tsx`
+- [x] Create `components/upload/FileUploader.tsx`
+- [x] Create `components/upload/UploadProgress.tsx`
+- [x] Create `components/upload/ChunkingConfigurator.tsx`
+- [x] Create `components/upload/MetadataEditor.tsx`
 
 ### 5.2 File Uploader Component
-- [ ] Implement drag-and-drop zone
-- [ ] Add file validation (size, type)
-- [ ] Add display name input
-- [ ] Add file preview
-- [ ] Test file selection
+- [x] Implement drag-and-drop zone
+- [x] Add file validation (size, type)
+- [x] Add display name input
+- [x] Add file preview
+- [x] Test file selection
 
 ### 5.3 Chunking Configurator
-- [ ] Add maxTokensPerChunk slider (200-800)
-- [ ] Add maxOverlapTokens slider (20-50)
-- [ ] Add preset buttons (Small, Medium, Large)
-- [ ] Add visual explanation
-- [ ] Test configuration changes
+- [x] Add maxTokensPerChunk slider (200-800)
+- [x] Add maxOverlapTokens slider (20-50)
+- [x] Add preset buttons (Small, Medium, Large)
+- [x] Add visual explanation
+- [x] Test configuration changes
 
 ### 5.4 Metadata Editor
-- [ ] Implement dynamic key-value rows
-- [ ] Add type selector (String/Numeric)
-- [ ] Add add/remove row buttons
-- [ ] Add validation (no duplicate keys)
-- [ ] Test metadata input
+- [x] Implement dynamic key-value rows
+- [x] Add type selector (String/Numeric)
+- [x] Add add/remove row buttons
+- [x] Add validation (no duplicate keys)
+- [x] Test metadata input
 
 ### 5.5 Upload Flow
-- [ ] Create `lib/hooks/useFileUpload.ts`
-- [ ] Create `lib/hooks/useOperationPolling.ts`
-- [ ] Implement FormData submission
-- [ ] Implement operation polling
-- [ ] Show progress bar
-- [ ] Handle success/error states
-- [ ] Test end-to-end upload
+- [x] Create `lib/hooks/useFileUpload.ts`
+- [x] Create `lib/hooks/useOperationPolling.ts`
+- [x] Implement FormData submission
+- [x] Implement operation polling
+- [x] Show progress bar
+- [x] Handle success/error states
+- [x] Test end-to-end upload
 
 ---
 
@@ -340,10 +340,10 @@
 ## Task Statistics
 
 **Total Tasks:** 134
-**Completed:** 86
+**Completed:** 113
 **In Progress:** 0
-**Remaining:** 48
-**Progress:** 64.2%
+**Remaining:** 21
+**Progress:** 84.3%
 
 ---
 

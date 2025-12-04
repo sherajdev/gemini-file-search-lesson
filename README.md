@@ -87,7 +87,7 @@ gemini-file-search-lesson/
 
 ## Development Status
 
-**Current Phase:** Phase 4 Complete ✅
+**Current Phase:** Phase 5 Complete ✅
 
 - [x] Next.js project setup
 - [x] Dependencies installed
@@ -95,11 +95,11 @@ gemini-file-search-lesson/
 - [x] Backend API layer (Phase 2) ✅
 - [x] UI components (Phase 3) ✅
 - [x] Store management (Phase 4) ✅
-- [ ] File upload (Phase 5)
+- [x] File upload (Phase 5) ✅
 - [ ] Query interface (Phase 6)
 - [ ] Advanced features (Phase 7)
 
-**Progress:** 86/134 tasks complete (64.2%)
+**Progress:** 113/134 tasks complete (84.3%)
 
 See [features/frontend-build/TASKS.md](features/frontend-build/TASKS.md) for detailed progress tracking.
 
@@ -228,27 +228,32 @@ MIT License - Feel free to use this project for learning and experimentation.
 ---
 
 **Branch:** `feature/nextjs-frontend`
-**Status:** In Development - Phase 4 Complete ✅
+**Status:** In Development - Phase 5 Complete ✅
 **Last Updated:** 2025-12-04
-**Progress:** 86/134 tasks (64.2%)
+**Progress:** 113/134 tasks (84.3%)
 
-## What's New in Phase 4
+## What's New in Phase 5
 
-✅ **Store Management Fully Implemented:**
-- Create and delete file search stores with modals
-- View all stores in a responsive grid layout
-- Store detail pages with metadata display
-- Toast notifications for all operations
-- Empty states and error handling
-- Loading states and user feedback
-- Breadcrumb navigation
-- Placeholder pages for upload and query features
+✅ **File Upload Fully Implemented:**
+- Drag-and-drop file upload with react-dropzone
+- File validation (size limits, type checking)
+- Customizable chunking configuration with sliders
+- Preset chunking options (Small, Medium, Large)
+- Dynamic metadata editor with key-value pairs
+- Support for string and numeric metadata values
+- Real-time upload progress tracking
+- Operation polling for async uploads
+- Success/error state handling
+- Upload another file or navigate to query
 
 **Key Features:**
-- `useStores` custom hook for state management
-- Full CRUD operations for stores
-- Confirmation dialogs for destructive actions
-- Automatic list refresh after operations
-- Clean, intuitive UI with excellent UX
+- `useFileUpload` hook for upload logic
+- `useOperationPolling` hook for async operation tracking
+- FileUploader component with drag-and-drop
+- ChunkingConfigurator with visual sliders (200-800 tokens per chunk)
+- MetadataEditor with add/remove rows and type selection
+- UploadProgress component with loading states
+- Full FormData submission to API
+- Automatic operation polling until completion
 
-The app now has a complete store management system! You can create, view, and delete stores with a polished, production-ready interface.
+The app now has a complete file upload system! You can upload documents with custom chunking and metadata, track upload progress, and prepare files for semantic search.

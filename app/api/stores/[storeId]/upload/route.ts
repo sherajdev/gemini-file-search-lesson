@@ -46,6 +46,9 @@ export async function POST(
     // IMPORTANT: Await params in Next.js 15+
     const { storeId } = await params;
 
+    // Construct full store name: "fileSearchStores/{id}"
+    const storeName = `fileSearchStores/${storeId}`;
+
     // Parse FormData
     const formData = await request.formData();
     const file = formData.get('file') as File;
@@ -113,7 +116,7 @@ export async function POST(
     await writeFile(tempFilePath, buffer);
 
     // Upload file to Gemini
-    const operation = await uploadFile(tempFilePath, storeId, config);
+    const operation = await uploadFile(tempFilePath, storeName, config);
 
     // Clean up temp file
     await unlink(tempFilePath);
