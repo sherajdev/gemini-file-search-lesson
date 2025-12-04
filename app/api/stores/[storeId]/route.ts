@@ -24,7 +24,9 @@ export async function GET(
     // IMPORTANT: Await params in Next.js 15+
     const { storeId } = await params;
 
-    const store = await getStore(storeId);
+    // Construct full store name: "fileSearchStores/{id}"
+    const storeName = `fileSearchStores/${storeId}`;
+    const store = await getStore(storeName);
 
     return NextResponse.json({
       success: true,
@@ -71,7 +73,9 @@ export async function DELETE(
     // IMPORTANT: Await params in Next.js 15+
     const { storeId } = await params;
 
-    await deleteStore(storeId);
+    // Construct full store name: "fileSearchStores/{id}"
+    const storeName = `fileSearchStores/${storeId}`;
+    await deleteStore(storeName);
 
     return NextResponse.json({
       success: true,

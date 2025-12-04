@@ -2,14 +2,14 @@
 
 **Project:** Next.js Frontend for Gemini File Search API
 **Started:** 2025-12-04
-**Status:** In Progress - Phase 3 Complete
+**Status:** In Progress - Phase 4 Complete
 
 ## Progress Overview
 
 - [x] Phase 1: Project Setup (5/5) ✓
 - [x] Phase 2: Backend API Layer (7/7) ✓
 - [x] Phase 3: Core UI Components (3/3) ✓
-- [ ] Phase 4: Store Management (0/2)
+- [x] Phase 4: Store Management (2/2) ✓
 - [ ] Phase 5: File Upload (0/5)
 - [ ] Phase 6: Query Interface (0/5)
 - [ ] Phase 7: Advanced Features (0/3)
@@ -133,22 +133,22 @@
 ## Phase 4: Store Management
 
 ### 4.1 Stores List Page
-- [ ] Create `app/(dashboard)/stores/page.tsx`
-- [ ] Create `components/stores/StoreList.tsx`
-- [ ] Create `components/stores/StoreCard.tsx`
-- [ ] Create `components/stores/CreateStoreModal.tsx`
-- [ ] Create `components/stores/DeleteStoreModal.tsx`
-- [ ] Create `lib/hooks/useStores.ts`
-- [ ] Implement empty state UI
-- [ ] Test CRUD operations
+- [x] Create `app/(dashboard)/stores/page.tsx`
+- [x] Create `components/stores/StoreList.tsx`
+- [x] Create `components/stores/StoreCard.tsx`
+- [x] Create `components/stores/CreateStoreModal.tsx`
+- [x] Create `components/stores/DeleteStoreModal.tsx`
+- [x] Create `lib/hooks/useStores.ts`
+- [x] Implement empty state UI
+- [x] Test CRUD operations
 
 ### 4.2 Store Detail Page
-- [ ] Create `app/(dashboard)/stores/[storeId]/page.tsx`
-- [ ] Display store metadata
-- [ ] Add "Upload File" button
-- [ ] Add "Query Store" button
-- [ ] Add breadcrumb navigation
-- [ ] Test page navigation
+- [x] Create `app/(dashboard)/stores/[storeId]/page.tsx`
+- [x] Display store metadata
+- [x] Add "Upload File" button
+- [x] Add "Query Store" button
+- [x] Add breadcrumb navigation
+- [x] Test page navigation
 
 ---
 
@@ -340,10 +340,10 @@
 ## Task Statistics
 
 **Total Tasks:** 134
-**Completed:** 72
+**Completed:** 86
 **In Progress:** 0
-**Remaining:** 62
-**Progress:** 53.7%
+**Remaining:** 48
+**Progress:** 64.2%
 
 ---
 

@@ -1,6 +1,48 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
+'use client';
+
+import { useStores } from '@/lib/hooks/useStores';
+import { StoreList } from '@/components/stores/StoreList';
+import { useToast } from '@/lib/hooks/useToast';
+import { Store } from '@/lib/types';
 
 export default function StoresPage() {
+  const { stores, isLoading, error, createStore, deleteStore } = useStores();
+  const { toast } = useToast();
+
+  const handleCreateStore = async (displayName: string) => {
+    const store = await createStore(displayName);
+    if (store) {
+      toast({
+        title: 'Store Created',
+        description: `Successfully created "${displayName}"`,
+        variant: 'success',
+      });
+    } else {
+      toast({
+        title: 'Creation Failed',
+        description: 'Failed to create store. Please try again.',
+        variant: 'error',
+      });
+    }
+  };
+
+  const handleDeleteStore = async (store: Store) => {
+    const success = await deleteStore(store.name);
+    if (success) {
+      toast({
+        title: 'Store Deleted',
+        description: `Successfully deleted "${store.displayName}"`,
+        variant: 'success',
+      });
+    } else {
+      toast({
+        title: 'Deletion Failed',
+        description: 'Failed to delete store. Please try again.',
+        variant: 'error',
+      });
+    }
+  };
+
   return (
     <div className="space-y-8 p-8 bg-gray-50 min-h-screen">
       {/* Page Header */}
@@ -13,20 +55,14 @@ export default function StoresPage() {
         </div>
       </div>
 
-      {/* Placeholder */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Coming Soon</CardTitle>
-          <CardDescription>
-            Store management will be implemented in Phase 4
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-gray-600">
-            This page will allow you to create, view, and delete file search stores.
-          </p>
-        </CardContent>
-      </Card>
+      {/* Store List */}
+      <StoreList
+        stores={stores}
+        isLoading={isLoading}
+        error={error}
+        onCreateStore={handleCreateStore}
+        onDeleteStore={handleDeleteStore}
+      />
     </div>
   );
 }
