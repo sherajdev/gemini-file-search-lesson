@@ -16,7 +16,7 @@ interface ChunkingConfiguratorProps {
 const PRESETS = {
   small: { maxTokensPerChunk: 200, maxOverlapTokens: 20, label: 'Small', description: 'Precise retrieval' },
   medium: { maxTokensPerChunk: 400, maxOverlapTokens: 30, label: 'Medium', description: 'Balanced' },
-  large: { maxTokensPerChunk: 800, maxOverlapTokens: 50, label: 'Large', description: 'More context' },
+  large: { maxTokensPerChunk: 512, maxOverlapTokens: 50, label: 'Large', description: 'More context (max)' },
 };
 
 export function ChunkingConfigurator({ config, onChange }: ChunkingConfiguratorProps) {
@@ -79,7 +79,7 @@ export function ChunkingConfigurator({ config, onChange }: ChunkingConfiguratorP
           type="range"
           id="maxTokensPerChunk"
           min={200}
-          max={800}
+          max={512}
           step={50}
           value={config.maxTokensPerChunk}
           onChange={(e) => handleSliderChange('maxTokensPerChunk', parseInt(e.target.value))}
@@ -87,7 +87,7 @@ export function ChunkingConfigurator({ config, onChange }: ChunkingConfiguratorP
         />
         <div className="flex justify-between text-xs text-gray-500">
           <span>200</span>
-          <span>800</span>
+          <span>512 (max)</span>
         </div>
         <p className="text-xs text-gray-500">
           Smaller chunks = more precise retrieval. Larger chunks = more context per result.

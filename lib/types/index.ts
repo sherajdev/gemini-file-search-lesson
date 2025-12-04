@@ -217,9 +217,9 @@ export const CHUNKING_PRESETS: Record<ChunkingPreset['name'], ChunkingPreset> = 
   },
   large: {
     name: 'large',
-    maxTokensPerChunk: 800,
+    maxTokensPerChunk: 512,
     maxOverlapTokens: 50,
-    description: 'More context per chunk'
+    description: 'Maximum context per chunk (API limit)'
   }
 };
 
