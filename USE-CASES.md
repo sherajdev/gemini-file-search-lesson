@@ -769,20 +769,43 @@ Metadata filter:
   AND api_version = "v3"
 ```
 
-**Answer:**
+**Results:**
 ```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ANSWER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 Breaking changes in API v3:
 
-1. Authentication endpoints moved from /auth to /v3/auth
-2. Response format changed: timestamps now in ISO 8601
-3. Deprecated endpoints removed: /users/search (use /v3/search)
-4. Required field added: user_id in all POST requests
-5. Rate limits reduced from 1000/hr to 500/hr for free tier
+1. **Authentication endpoints moved**
+   - Old: /auth → New: /v3/auth
 
-Migration guide available at /docs/v2-to-v3-migration
+2. **Response format changed**
+   - All timestamps now in ISO 8601 format
+
+3. **Deprecated endpoints removed**
+   - /users/search removed (use /v3/search instead)
+
+4. **Required field added**
+   - user_id now required in all POST requests
+
+5. **Rate limits adjusted**
+   - Free tier: 1000/hr → 500/hr
+   - Paid tier: unchanged
+
+**Migration Guide:** /docs/v2-to-v3-migration
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SOURCES (2)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📄 API Changelog v3.0 - Breaking Changes
+📄 Migration Guide v2 to v3
+
+[Export: JSON | CSV | Markdown]  [Copy Answer]
 ```
 
-Alex copies this and posts it to the company blog, properly citing the sources.
+Alex clicks **"Export: Markdown"** and posts this to the company blog, properly citing the sources.
 
 ---
 
