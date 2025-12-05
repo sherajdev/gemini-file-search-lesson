@@ -7,6 +7,7 @@ import { Store, GetStoreResponse } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
+import { DocumentsList } from '@/components/documents/DocumentsList';
 import { Database, Upload, Search, ArrowLeft, Calendar, Hash, AlertCircle } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 
@@ -212,7 +213,7 @@ export default function StoreDetailPage({ params }: StoreDetailPageProps) {
           </CardContent>
         </Card>
 
-        {/* Future: Files List */}
+        {/* Files List */}
         <Card>
           <CardHeader>
             <CardTitle className="text-lg">Files</CardTitle>
@@ -221,10 +222,7 @@ export default function StoreDetailPage({ params }: StoreDetailPageProps) {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-center py-8 text-gray-500">
-              <Database className="w-12 h-12 mx-auto mb-3 opacity-30" />
-              <p className="text-sm">File listing coming in a future update</p>
-            </div>
+            <DocumentsList storeId={storeId} storeName={store.name} />
           </CardContent>
         </Card>
       </div>

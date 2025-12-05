@@ -2,11 +2,35 @@
 
 A modern web application for exploring Google's Gemini File Search API with RAG (Retrieval Augmented Generation) capabilities.
 
-![Landing Page](docs/screenshots/landing-page.png)
+## Screenshots
+
+<table>
+  <tr>
+    <td width="50%">
+      <h3 align="center">Dashboard</h3>
+      <img src="docs/screenshots/dashboard.png" alt="Dashboard" />
+    </td>
+    <td width="50%">
+      <h3 align="center">Store Management</h3>
+      <img src="docs/screenshots/stores-page.png" alt="Stores Page" />
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3 align="center">Query Interface</h3>
+      <img src="docs/screenshots/query-interface.png" alt="Query Interface" />
+    </td>
+    <td width="50%">
+      <h3 align="center">Landing Page</h3>
+      <img src="docs/screenshots/landing-page.png" alt="Landing Page" />
+    </td>
+  </tr>
+</table>
 
 ## Features
 
 - **File Search Store Management** - Create and manage document stores
+- **Document Management** - View and delete uploaded files with metadata display
 - **File Upload** - Upload documents with custom chunking and metadata
 - **Semantic Search** - Query documents with AI-powered search
 - **Citation Explorer** - View detailed source citations and grounding metadata
@@ -87,7 +111,7 @@ gemini-file-search-lesson/
 
 ## Development Status
 
-**Current Phase:** Phase 6 Complete ✅
+**Current Phase:** Phase 7.5 Complete ✅
 
 - [x] Next.js project setup
 - [x] Dependencies installed
@@ -97,9 +121,12 @@ gemini-file-search-lesson/
 - [x] Store management (Phase 4) ✅
 - [x] File upload (Phase 5) ✅
 - [x] Query interface (Phase 6) ✅
-- [ ] Advanced features (Phase 7)
+- [x] Advanced features (Phase 7) ✅
+- [x] Document management (Phase 7.5) ✅
+- [ ] Polish & Testing (Phase 8)
+- [ ] Documentation (Phase 9)
 
-**Progress:** 138/134 tasks complete (100% - Phases 1-6)
+**Progress:** 154/170 tasks complete (91% - Phases 1-7.5)
 
 See [features/frontend-build/TASKS.md](features/frontend-build/TASKS.md) for detailed progress tracking.
 
@@ -120,10 +147,17 @@ npm run type-check   # TypeScript type checking
 
 ✅ **All API endpoints are now implemented and functional:**
 
+### Store Management
 - `GET /api/stores` - List all file search stores
 - `POST /api/stores` - Create a new store
 - `GET /api/stores/[storeId]` - Get store details
 - `DELETE /api/stores/[storeId]` - Delete a store
+
+### Document Management
+- `GET /api/stores/[storeId]/documents` - List all documents in a store
+- `DELETE /api/stores/[storeId]/documents/[documentId]` - Delete a document
+
+### File Upload & Queries
 - `POST /api/stores/[storeId]/upload` - Upload file to store with chunking & metadata
 - `POST /api/queries` - Query stores with AI-powered retrieval and citations
 - `GET /api/operations/[operationId]` - Check operation status for async operations
@@ -228,9 +262,9 @@ MIT License - Feel free to use this project for learning and experimentation.
 ---
 
 **Branch:** `feature/nextjs-frontend`
-**Status:** In Development - Phase 6 Complete ✅
-**Last Updated:** 2025-12-04
-**Progress:** 138/134 tasks (100% - Core MVP Complete!)
+**Status:** In Development - Phase 7.5 Complete ✅
+**Last Updated:** 2025-12-05
+**Progress:** 154/170 tasks (91% - Document Management Complete!)
 
 ## What's New in Phase 6
 
@@ -270,3 +304,52 @@ MIT License - Feel free to use this project for learning and experimentation.
 5. View and explore the grounding metadata
 
 The core MVP is complete! The application now demonstrates the full Retrieval Augmented Generation (RAG) pattern with Google's Gemini File Search API.
+
+## What's New in Phase 7.5
+
+✅ **Document Management Fully Implemented:**
+- View all uploaded files in a store with detailed metadata
+- Delete individual documents with confirmation modal
+- Real-time document status tracking (Processing/Ready/Failed)
+- File size and upload date display in human-readable format
+- Custom metadata badge display
+- Empty state with upload CTA
+- Comprehensive error handling and retry functionality
+- Auto-refresh after upload or deletion
+
+**Key Components:**
+- `DocumentsList` - Main container for document management
+- `DocumentItem` - Individual document display with state badges
+- `DeleteDocumentModal` - Confirmation dialog for document deletion
+- `EmptyDocumentsState` - Beautiful empty state with upload link
+- `useDocuments` hook - Document state management and operations
+- Document management at `/stores/[storeId]` (integrated into store detail page)
+
+**Features:**
+- List all documents in a store with status indicators
+- Color-coded badges: 🟡 Processing, 🟢 Ready, 🔴 Failed
+- Display file metadata: name, size, MIME type, upload date
+- Delete individual files without deleting entire store
+- View custom metadata tags for each document
+- Automatic status updates with refresh button
+- Mobile-responsive design (stacked on mobile, row layout on desktop)
+- File type icons (PDF, text, image, video, code files)
+
+**API Routes Added:**
+- `GET /api/stores/[storeId]/documents` - List documents
+- `DELETE /api/stores/[storeId]/documents/[documentId]` - Delete document
+
+**Backend Components:**
+- `lib/api/documents.ts` - Document operations (list, get, delete)
+- `lib/utils/formatters.ts` - File size and date formatting utilities
+
+**The Enhanced Workflow:**
+1. Create a file search store
+2. Upload multiple documents with custom chunking and metadata
+3. **View and manage uploaded files in the store**
+4. **Delete individual files as needed**
+5. Ask questions about your documents
+6. Get AI-generated answers with source citations
+7. View and explore the grounding metadata
+
+Document management is now fully integrated! Users can now manage their uploaded files directly from the store detail page.

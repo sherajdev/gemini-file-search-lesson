@@ -55,6 +55,35 @@ export interface UploadFileRequest {
 }
 
 // ============================================================================
+// Document Types
+// ============================================================================
+
+export type DocumentState = 'PENDING' | 'ACTIVE' | 'FAILED';
+
+export interface Document {
+  name: string;
+  displayName: string;
+  state: DocumentState;
+  sizeBytes?: number;
+  mimeType?: string;
+  createTime?: string;
+  updateTime?: string;
+  customMetadata?: CustomMetadataItem[];
+}
+
+export interface ListDocumentsResponse {
+  documents: Document[];
+}
+
+export interface GetDocumentResponse {
+  document: Document;
+}
+
+export interface DeleteDocumentResponse {
+  success: boolean;
+}
+
+// ============================================================================
 // Operation Types
 // ============================================================================
 
