@@ -126,6 +126,19 @@ export async function deleteDocument(documentName: string): Promise<void> {
       name: documentName
     });
   } catch (error: any) {
+    // Check if this is the "non-empty document" error
+    const errorMessage = error.message || JSON.stringify(error);
+    const isNonEmptyError = errorMessage.includes('Cannot delete non-empty Document') ||
+                           errorMessage.includes('FAILED_PRECONDITION');
+
+    if (isNonEmptyError) {
+      throw new GeminiApiError(
+        'Documents with processed content cannot be deleted individually. To remove this document, please delete the entire store.',
+        400,
+        error.response?.data
+      );
+    }
+
     throw new GeminiApiError(
       `Failed to delete document: ${error.message}`,
       error.response?.status || 500,

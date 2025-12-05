@@ -76,6 +76,15 @@ function getStateBadge(state: 'PENDING' | 'ACTIVE' | 'FAILED') {
 export function DocumentItem({ document, onDelete }: DocumentItemProps) {
   const badge = getStateBadge(document.state);
   const isPending = document.state === 'PENDING';
+  const isActive = document.state === 'ACTIVE';
+  const canDelete = document.state === 'FAILED'; // Only allow deletion of failed documents
+
+  let deleteTooltip = 'Delete document';
+  if (isPending) {
+    deleteTooltip = 'Cannot delete while processing';
+  } else if (isActive) {
+    deleteTooltip = 'Active documents cannot be deleted. Delete the entire store instead.';
+  }
 
   return (
     <div className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg hover:border-gray-300 transition-colors">
@@ -139,9 +148,9 @@ export function DocumentItem({ document, onDelete }: DocumentItemProps) {
           variant="outline"
           size="sm"
           onClick={onDelete}
-          disabled={isPending}
-          className="text-red-600 hover:text-red-700 hover:bg-red-50 hover:border-red-300"
-          title={isPending ? 'Cannot delete while processing' : 'Delete document'}
+          disabled={!canDelete}
+          className="text-red-600 hover:text-red-700 hover:bg-red-50 hover:border-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          title={deleteTooltip}
         >
           <Trash2 className="w-4 h-4" />
         </Button>

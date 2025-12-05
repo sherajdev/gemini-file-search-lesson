@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { Document } from '@/lib/types';
 import { useDocuments } from '@/lib/hooks/useDocuments';
 import { DocumentItem } from './DocumentItem';
+import { DocumentItemSkeleton } from './DocumentItemSkeleton';
 import { EmptyDocumentsState } from './EmptyDocumentsState';
 import { DeleteDocumentModal } from './DeleteDocumentModal';
-import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
 import { Button } from '@/components/ui/Button';
 import { RefreshCw, AlertCircle } from 'lucide-react';
 
@@ -68,9 +68,15 @@ export function DocumentsList({ storeId, storeName }: DocumentsListProps) {
   // Loading State
   if (isLoading) {
     return (
-      <div className="flex flex-col items-center justify-center py-12 space-y-4">
-        <LoadingSpinner size="lg" />
-        <p className="text-sm text-gray-600">Loading documents...</p>
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="h-4 w-24 bg-gray-200 rounded animate-pulse" />
+        </div>
+        <div className="space-y-3">
+          {[1, 2, 3].map((i) => (
+            <DocumentItemSkeleton key={i} />
+          ))}
+        </div>
       </div>
     );
   }

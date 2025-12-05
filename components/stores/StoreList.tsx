@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import { Store } from '@/lib/types';
 import { StoreCard } from './StoreCard';
+import { StoreCardSkeleton } from './StoreCardSkeleton';
 import { CreateStoreModal } from './CreateStoreModal';
 import { DeleteStoreModal } from './DeleteStoreModal';
 import { Button } from '@/components/ui/Button';
-import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
 import { Database, Plus, AlertCircle } from 'lucide-react';
 
 interface StoreListProps {
@@ -62,9 +62,18 @@ export function StoreList({
   // Loading State
   if (isLoading) {
     return (
-      <div className="flex flex-col items-center justify-center py-16 space-y-4">
-        <LoadingSpinner size="lg" />
-        <p className="text-gray-600">Loading stores...</p>
+      <div className="space-y-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <div className="h-7 w-32 bg-gray-200 rounded animate-pulse" />
+            <div className="h-4 w-48 bg-gray-200 rounded animate-pulse mt-2" />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[1, 2, 3].map((i) => (
+            <StoreCardSkeleton key={i} />
+          ))}
+        </div>
       </div>
     );
   }

@@ -4,10 +4,11 @@ import { use, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
+import { Skeleton } from '@/components/ui/Skeleton';
 import { QueryInterface, QueryOptions } from '@/components/query/QueryInterface';
 import { AnswerDisplay } from '@/components/query/AnswerDisplay';
 import { CitationList } from '@/components/query/CitationList';
+import { CitationListSkeleton } from '@/components/query/CitationListSkeleton';
 import { useQuery } from '@/lib/hooks/useQuery';
 import { Store } from '@/lib/types';
 import { Search, ArrowLeft, AlertCircle } from 'lucide-react';
@@ -59,8 +60,8 @@ export default function QueryPage({ params }: QueryPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
-      <div className="max-w-5xl mx-auto space-y-6">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 md:p-8">
+      <div className="max-w-5xl mx-auto space-y-4 md:space-y-6">
         {/* Breadcrumb Navigation */}
         <div className="flex items-center gap-2 text-sm">
           <Link href="/stores" className="text-gray-500 hover:text-gray-700">
@@ -92,8 +93,10 @@ export default function QueryPage({ params }: QueryPageProps) {
         {/* Store Loading/Error State */}
         {isLoadingStore ? (
           <Card className="p-6">
-            <div className="flex items-center justify-center py-8">
-              <LoadingSpinner size="md" />
+            <div className="space-y-4">
+              <Skeleton width="48" height="10" />
+              <Skeleton width="full" height="4" />
+              <Skeleton width="3/4" height="4" />
             </div>
           </Card>
         ) : storeError ? (
@@ -137,11 +140,13 @@ export default function QueryPage({ params }: QueryPageProps) {
             )}
 
             {/* Citations */}
-            {response?.groundingMetadata?.groundingChunks && (
+            {isLoading ? (
+              <CitationListSkeleton count={3} />
+            ) : response?.groundingMetadata?.groundingChunks ? (
               <CitationList
                 citations={response.groundingMetadata.groundingChunks}
               />
-            )}
+            ) : null}
 
             {/* Help Card - Show when no results yet */}
             {!response && !isLoading && !error && (

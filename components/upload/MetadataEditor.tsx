@@ -118,8 +118,8 @@ export function MetadataEditor({ metadata, onChange }: MetadataEditorProps) {
       ) : (
         <div className="space-y-3">
           {rows.map((row) => (
-            <div key={row.id} className="flex items-start gap-2">
-              <div className="flex-1 grid grid-cols-3 gap-2">
+            <div key={row.id} className="flex flex-col md:flex-row items-start gap-2">
+              <div className="w-full md:flex-1 grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {/* Key input */}
                 <div>
                   <Input

@@ -44,7 +44,7 @@ export default function StoresPage() {
   };
 
   return (
-    <div className="space-y-8 p-8 bg-gray-50 min-h-screen">
+    <div className="space-y-6 md:space-y-8 p-4 sm:p-6 md:p-8 bg-gray-50 min-h-screen">
       {/* Page Header */}
       <div className="flex items-center justify-between">
         <div>
