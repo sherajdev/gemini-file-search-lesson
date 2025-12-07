@@ -96,6 +96,18 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## 📖 User Guide
+
+For detailed instructions on using the application, see the **[Complete User Guide](docs/USER_GUIDE.md)**.
+
+The guide covers:
+- Creating and managing stores
+- Uploading files with chunking and metadata
+- Querying documents with AI-powered search
+- Understanding citations and grounding
+- Advanced features (multi-store queries, metadata filtering, model selection)
+- Troubleshooting and best practices
+
 ## Project Structure
 
 ```
@@ -120,28 +132,15 @@ gemini-file-search-lesson/
 └── features/              # Feature planning docs
 ```
 
-## Development Status
+## Project Status
 
-**Current Phase:** Phase 8 Complete ✅ - Production Ready!
-
-- [x] Next.js project setup
-- [x] Dependencies installed
-- [x] Environment configured
-- [x] Backend API layer (Phase 2) ✅
-- [x] UI components (Phase 3) ✅
-- [x] Store management (Phase 4) ✅
-- [x] File upload (Phase 5) ✅
-- [x] Query interface (Phase 6) ✅
-- [x] Advanced features (Phase 7) ✅
-- [x] Document management (Phase 7.5) ✅
-- [x] Polish & Testing (Phase 8) ✅
-- [ ] Documentation (Phase 9) - In Progress
-
-**Progress:** 182/200 tasks complete (94% - Phases 1-8 Complete!)
-
-The application is now **production-ready** with comprehensive loading states, error handling, responsive design, and accessibility features!
-
-See [features/frontend-build/TASKS.md](features/frontend-build/TASKS.md) for detailed progress tracking.
+This project is **100% complete** and production-ready with:
+- ✅ Full-featured Next.js web application
+- ✅ Comprehensive store and document management
+- ✅ Advanced file upload with chunking and metadata
+- ✅ AI-powered semantic search with citations
+- ✅ Responsive design and accessibility features
+- ✅ Complete documentation and user guides
 
 ## Scripts
 
@@ -229,34 +228,9 @@ React components provide the UI for:
 - Never exposed to client-side code
 - All sensitive operations happen in API routes
 
-## Features (Planned)
-
-### Store Management
-- Create and delete file search stores
-- View all stores in a grid layout
-- Store metadata display
-
-### File Upload
-- Drag-and-drop file upload
-- Custom chunking configuration
-- Metadata tagging
-- Upload progress tracking
-
-### Query Interface
-- Natural language queries
-- Real-time AI responses
-- Multi-store search
-- Metadata filtering
-
-### Citation Explorer
-- Detailed source citations
-- Grounding metadata display
-- Export functionality (JSON, CSV, Markdown)
-
 ## Resources
 
-- [Implementation Plan](features/frontend-build/implementation-plan.md)
-- [Task Tracker](features/frontend-build/TASKS.md)
+- [User Guide](docs/USER_GUIDE.md) - Complete usage documentation
 - [Gemini API Documentation](https://ai.google.dev/docs)
 - [Next.js Documentation](https://nextjs.org/docs)
 
@@ -277,6 +251,5 @@ MIT License - Feel free to use this project for learning and experimentation.
 ## Status
 
 **Branch:** `feature/nextjs-frontend`
-**Status:** Production Ready - Phase 8 Complete ✅
-**Last Updated:** 2025-12-05
-**Progress:** 189/200 tasks (95% complete)
+**Status:** 100% Complete - Production Ready ✅
+**Last Updated:** 2025-12-07
