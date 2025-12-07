@@ -5,7 +5,18 @@
       "Bash(node test-file-search.js:*)",
       "Bash(git config:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(npm install)",
+      "Bash(node:*)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --use-npm)",
+      "Bash(test:*)",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(npm run type-check:*)",
+      "Bash(ls:*)",
+      "Bash(npm install:*)",
+      "WebSearch",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

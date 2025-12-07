@@ -1,8 +1,71 @@
-# Gemini File Search API - Testing Guide
+# Gemini File Search - Next.js Frontend
 
-A comprehensive, well-organized testing environment for learning and experimenting with Google's Gemini File Search API. This repository provides working examples, sample data, and complete documentation to help you get started with RAG (Retrieval Augmented Generation) using Gemini.
+A modern web application for exploring Google's Gemini File Search API with RAG (Retrieval Augmented Generation) capabilities.
 
-## 🎯 Quick Start
+## Screenshots
+
+<table>
+  <tr>
+    <td width="50%">
+      <h3 align="center">Dashboard</h3>
+      <img src="docs/screenshots/dashboard.png" alt="Dashboard" />
+    </td>
+    <td width="50%">
+      <h3 align="center">Store Management</h3>
+      <img src="docs/screenshots/stores-page.png" alt="Stores Page" />
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3 align="center">Query Interface</h3>
+      <img src="docs/screenshots/query-interface.png" alt="Query Interface" />
+    </td>
+    <td width="50%">
+      <h3 align="center">Landing Page</h3>
+      <img src="docs/screenshots/landing-page.png" alt="Landing Page" />
+    </td>
+  </tr>
+</table>
+
+## Features
+
+- **File Search Store Management** - Create and manage document stores
+- **Document Management** - View and delete uploaded files with metadata display
+- **File Upload** - Upload documents with custom chunking and metadata
+- **Semantic Search** - Query documents with AI-powered search
+- **Citation Explorer** - View detailed source citations and grounding metadata
+- **Advanced Filtering** - Filter results by metadata
+- **Multi-Store Queries** - Search across multiple document stores
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **UI Components:** Radix UI
+- **Forms:** React Hook Form + Zod
+- **API:** Google Gemini AI (`@google/genai`)
+
+## Prerequisites
+
+- Node.js 20+
+- npm
+- Gemini API key ([Get one here](https://aistudio.google.com/apikey))
+
+### ⚠️ Important: API Key Tiers
+
+**Model availability depends on your API key tier:**
+
+- **Free Tier** ✅: Can use Gemini 2.5 Flash, Pro, and Flash Lite
+- **Paid Tier** 💳: Can use all models including Gemini 3 Pro Preview
+
+If you use a free tier API key, some advanced models (like Gemini 3 Pro Preview) will show an error. The application will clearly indicate which models require a paid API key in the query interface.
+
+See the [User Guide](docs/USER_GUIDE.md#model-selection) for detailed information about models and rate limits.
+
+## Getting Started
+
+### 1. Clone and Install
 
 ```bash
 # Clone the repository
@@ -11,278 +74,182 @@ cd gemini-file-search-lesson
 
 # Install dependencies
 npm install
-
-# Set up your API key
-# Create a .env file and add: GEMINI_API_KEY=your-api-key-here
-
-# Run the basic example
-node examples/test-file-search.js
-
-# Try advanced features
-node examples/advanced-examples.js
-
-# Test alternative upload method
-node examples/test-import-method.js
-
-# Clean up test stores
-node scripts/cleanup-stores.js
 ```
 
-## 📁 Project Structure
+### 2. Configure Environment
 
-```
-gemini-file-search-lesson/
-├── data/                          # Sample test files
-│   ├── sample-product-info.txt    # Product catalog
-│   └── sample-company-policy.txt  # HR policies
-│
-├── docs/                          # API documentation
-│   ├── gemini-file-search.md      # User guide
-│   └── file-search-store.md       # API reference
-│
-├── examples/                      # Example scripts
-│   ├── test-file-search.js        # ⭐ Basic workflow (START HERE)
-│   ├── advanced-examples.js       # Advanced features
-│   └── test-import-method.js      # Alternative upload method
-│
-├── scripts/                       # Utility scripts
-│   └── cleanup-stores.js          # Delete all stores
-│
-├── .env.example                   # Environment template
-├── .gitignore                     # Git ignore rules
-├── package.json                   # Project dependencies
-└── README.md                      # This file
-```
-
-## 🚀 Examples Overview
-
-### 1. Basic Workflow (`examples/test-file-search.js`)
-**⭐ Start here for your first test**
-
-Demonstrates:
-- Creating a File Search Store
-- Uploading a file directly
-- Querying with semantic search
-- Viewing citations and grounding metadata
+Create a `.env.local` file in the root directory:
 
 ```bash
-node examples/test-file-search.js
-```
+# Copy the example file
+cp .env.example .env.local
 
-**Try modifying the question** (line 66):
-```javascript
-const question = "What features does the UltraBook Air have?";
-const question = "Which product has the longest battery life?";
-const question = "What's the cheapest product?";
-```
-
-### 2. Advanced Examples (`examples/advanced-examples.js`)
-
-Demonstrates:
-- **Multiple files in one store** - Search across different documents
-- **Custom metadata** - Add tags and filter queries
-- **Custom chunking** - Control how files are split
-
-```bash
-node examples/advanced-examples.js
-```
-
-### 3. Import Method (`examples/test-import-method.js`)
-
-Demonstrates:
-- Uploading to Files API first
-- Importing into File Search Store
-- Comparing with direct upload method
-
-```bash
-node examples/test-import-method.js
-```
-
-## 📊 Key Concepts
-
-### File Search Store
-A container for your document embeddings. Stores persist indefinitely until manually deleted.
-
-### Two Upload Methods
-
-| Method | Steps | Use Case |
-|--------|-------|----------|
-| **Direct Upload** | File → File Search Store | Simplest, recommended for most cases |
-| **Import** | File → Files API → File Search Store | When you need to reuse files |
-
-### Chunking
-Files are automatically split into chunks for better retrieval.
-
-```javascript
-chunkingConfig: {
-  whiteSpaceConfig: {
-    maxTokensPerChunk: 200,    // Size of each chunk
-    maxOverlapTokens: 20        // Overlap between chunks
-  }
-}
-```
-
-### Metadata & Filtering
-Add custom tags to files and filter queries:
-
-```javascript
-// Upload with metadata
-customMetadata: [
-  { key: "category", stringValue: "electronics" },
-  { key: "year", numericValue: 2024 }
-]
-
-// Query with filter
-metadataFilter: 'category = "electronics"'
-```
-
-### Citations
-Responses include `groundingMetadata` showing which files/chunks were used:
-
-```javascript
-response.candidates[0].groundingMetadata.groundingChunks
-```
-
-## 🧪 Learning Path
-
-### Beginner
-1. Run `examples/test-file-search.js` - Understand basic workflow
-2. Modify the question and re-run - See how responses change
-3. Try different questions about the sample data
-
-### Intermediate
-4. Run `examples/advanced-examples.js` - Explore advanced features
-   - Multiple files working together
-   - Metadata filtering
-   - Chunking strategies
-
-5. Run `examples/test-import-method.js` - Learn alternative workflows
-
-### Advanced
-6. Create your own test files
-   - Add custom documents to `data/`
-   - Modify scripts to use your files
-   - Experiment with different file types (PDF, DOCX, etc.)
-
-7. Build custom solutions
-   - Combine multiple features
-   - Create domain-specific search
-   - Implement production use cases
-
-## 💡 Sample Questions to Try
-
-### Product Queries
-```
-"What's the cheapest product?"
-"Which products are water resistant?"
-"Compare the battery life of all products"
-"What products were released in 2024?"
-```
-
-### Policy Queries
-```
-"What's the remote work policy?"
-"How much is the professional development budget?"
-"What does health insurance cover?"
-"How many vacation days for 4 years of service?"
-```
-
-### Cross-Document Queries
-```
-"Tell me about wireless products and the remote work policy"
-"What benefits support professional development?"
-```
-
-## 🧹 Cleanup
-
-After testing, clean up your File Search Stores:
-
-```bash
-node scripts/cleanup-stores.js
-```
-
-This deletes ALL stores. Alternatively, delete specific stores programmatically:
-
-```javascript
-await ai.fileSearchStores.delete({
-  name: 'fileSearchStores/store-name',
-  config: { force: true }
-});
-```
-
-## 📝 Configuration
-
-### API Key Setup
-
-1. Get your API key from [Google AI Studio](https://aistudio.google.com/)
-2. Create a `.env` file in the project root:
-
-```env
+# Add your API key
 GEMINI_API_KEY=your-api-key-here
 ```
 
-### Supported File Types
-- **Text**: `.txt`, `.md`, `.csv`, `.json`, `.xml`
-- **Documents**: `.pdf`, `.docx`, `.xlsx`, `.pptx`
-- **Code**: `.js`, `.py`, `.java`, `.cpp`, and 100+ more
+### 3. Run Development Server
 
-See [docs/gemini-file-search.md](docs/gemini-file-search.md) for the complete list.
+```bash
+npm run dev
+```
 
-## 📚 Documentation
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- **[docs/gemini-file-search.md](docs/gemini-file-search.md)** - Comprehensive user guide with tutorials
-- **[docs/file-search-store.md](docs/file-search-store.md)** - Complete API reference
-- **[QUICK-REFERENCE.md](QUICK-REFERENCE.md)** - API cheat sheet with code patterns
-- **[INDEX.md](INDEX.md)** - Project navigation guide
+## 📖 User Guide
 
-## 🔗 External Resources
+For detailed instructions on using the application, see the **[Complete User Guide](docs/USER_GUIDE.md)**.
 
-- [Google AI Studio](https://aistudio.google.com/) - Get API key
-- [Gemini API Documentation](https://ai.google.dev/gemini-api/docs/file-search)
-- [Rate Limits](https://ai.google.dev/gemini-api/docs/rate-limits)
-- [Pricing](https://ai.google.dev/gemini-api/docs/pricing)
+The guide covers:
+- Creating and managing stores
+- Uploading files with chunking and metadata
+- Querying documents with AI-powered search
+- Understanding citations and grounding
+- Advanced features (multi-store queries, metadata filtering, model selection)
+- Troubleshooting and best practices
 
-## 📊 Limits & Pricing
+## Project Structure
 
-### Storage Limits (Free Tier)
-- **Max file size**: 100 MB per file
-- **Total storage**: 1 GB (Free tier)
-- **Recommended**: Keep individual stores under 20 GB for optimal performance
+```
+gemini-file-search-lesson/
+├── app/                    # Next.js App Router
+│   ├── api/               # API routes (server-side)
+│   ├── (dashboard)/       # Dashboard pages
+│   └── page.tsx           # Landing page
+├── components/            # React components
+│   ├── ui/               # Base UI components
+│   ├── stores/           # Store management
+│   ├── upload/           # File upload
+│   ├── query/            # Query interface
+│   └── explorer/         # Citation explorer
+├── lib/                   # Backend logic and utilities
+│   ├── api/              # Gemini API wrappers
+│   ├── hooks/            # Custom React hooks
+│   ├── types/            # TypeScript types
+│   └── utils/            # Utility functions
+├── data/                  # Sample test files
+├── legacy/                # Original CLI examples
+└── features/              # Feature planning docs
+```
 
-### Pricing
-- **Indexing**: $0.15 per 1M tokens (one-time cost when uploading)
-- **Storage**: Free
-- **Query embeddings**: Free
-- **Retrieved tokens**: Normal context token pricing
+## Project Status
 
-## 🌟 Features
+This project is **100% complete** and production-ready with:
+- ✅ Full-featured Next.js web application
+- ✅ Comprehensive store and document management
+- ✅ Advanced file upload with chunking and metadata
+- ✅ AI-powered semantic search with citations
+- ✅ Responsive design and accessibility features
+- ✅ Complete documentation and user guides
 
-- ✅ **Well-organized structure** - Separate folders for data, examples, docs, scripts
-- ✅ **Working examples** - All scripts tested and functional
-- ✅ **Comprehensive docs** - Multiple guides for different needs
-- ✅ **Sample data** - Ready-to-use test files
-- ✅ **Clean code** - Proper error handling and path management
+## Scripts
 
-## 🤝 Contributing
+```bash
+# Development
+npm run dev          # Start dev server
+npm run build        # Build for production
+npm run start        # Start production server
 
-Contributions are welcome! Feel free to:
-- Add new example scripts
-- Improve documentation
-- Add more sample data files
-- Report issues or suggest improvements
+# Code Quality
+npm run lint         # Run ESLint
+npm run type-check   # TypeScript type checking
+```
 
-## 📄 License
+## API Routes
+
+✅ **All API endpoints are now implemented and functional:**
+
+### Store Management
+- `GET /api/stores` - List all file search stores
+- `POST /api/stores` - Create a new store
+- `GET /api/stores/[storeId]` - Get store details
+- `DELETE /api/stores/[storeId]` - Delete a store
+
+### Document Management
+- `GET /api/stores/[storeId]/documents` - List all documents in a store
+- `DELETE /api/stores/[storeId]/documents/[documentId]` - Delete a document
+
+### File Upload & Queries
+- `POST /api/stores/[storeId]/upload` - Upload file to store with chunking & metadata
+- `POST /api/queries` - Query stores with AI-powered retrieval and citations
+- `GET /api/operations/[operationId]` - Check operation status for async operations
+
+All routes include:
+- Zod validation for request payloads
+- Comprehensive error handling
+- TypeScript type safety
+- Proper Next.js 15+ async params pattern
+
+## Legacy CLI Examples
+
+The original Node.js CLI scripts are preserved in the `legacy/` directory:
+
+```bash
+# Run legacy examples
+node legacy/examples/test-file-search.js
+node legacy/examples/advanced-examples.js
+
+# Clean up test stores
+node legacy/scripts/cleanup-stores.js
+```
+
+See [legacy/README.md](legacy/README.md) for the original CLI documentation.
+
+## Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `GEMINI_API_KEY` | Your Google Gemini API key | Yes |
+
+## Architecture
+
+### Backend (API Routes)
+
+API routes run server-side and handle:
+- Gemini API authentication
+- File uploads and processing
+- Document indexing
+- Query processing
+- Operation polling
+
+### Frontend (React Components)
+
+React components provide the UI for:
+- Store management (create, view, delete)
+- File upload with drag-and-drop
+- Query interface with real-time results
+- Citation viewing and exploration
+- Metadata filtering
+
+## Security
+
+- API keys are stored in `.env.local` (git-ignored)
+- Keys are only accessible server-side (API routes)
+- Never exposed to client-side code
+- All sensitive operations happen in API routes
+
+## Resources
+
+- [User Guide](docs/USER_GUIDE.md) - Complete usage documentation
+- [Gemini API Documentation](https://ai.google.dev/docs)
+- [Next.js Documentation](https://nextjs.org/docs)
+
+## Contributing
+
+This is a learning project for exploring the Gemini File Search API. Feel free to:
+- Experiment with the code
+- Try different features
+- Build custom implementations
+- Share your learnings
+
+## License
 
 MIT License - Feel free to use this project for learning and experimentation.
 
-## 🙏 Acknowledgments
-
-Built with [Google's Gemini API](https://ai.google.dev/gemini-api) and the [@google/genai](https://www.npmjs.com/package/@google/genai) SDK.
-
 ---
 
-**Getting Started**: Clone this repo, set up your API key, and run `node examples/test-file-search.js`
+## Status
 
-**Need Help?**: Check out [QUICK-REFERENCE.md](QUICK-REFERENCE.md) for common patterns and troubleshooting
-
-Happy learning! 🚀
+**Branch:** `feature/nextjs-frontend`
+**Status:** 100% Complete - Production Ready ✅
+**Last Updated:** 2025-12-07
