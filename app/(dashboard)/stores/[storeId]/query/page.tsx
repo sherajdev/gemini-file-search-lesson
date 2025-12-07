@@ -123,9 +123,14 @@ export default function QueryPage({ params }: QueryPageProps) {
               <Card className="p-6 bg-red-50 border-red-200">
                 <div className="flex items-start gap-3">
                   <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-sm font-semibold text-red-900 mb-1">Query Error</h3>
-                    <p className="text-sm text-red-800">{error}</p>
+                    <p className="text-sm text-red-800 whitespace-pre-wrap">{error}</p>
+                    {error.includes('paid API key') && (
+                      <p className="text-xs text-red-700 mt-2">
+                        💡 Tip: Select a different model like Gemini 2.5 Flash, Pro, or Flash Lite which work with free API keys.
+                      </p>
+                    )}
                   </div>
                 </div>
               </Card>

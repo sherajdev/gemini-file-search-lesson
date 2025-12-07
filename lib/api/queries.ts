@@ -73,9 +73,34 @@ export async function queryStores(request: QueryRequest): Promise<QueryResponse>
       model
     };
   } catch (error: any) {
+    // Check for quota/rate limit errors (429)
+    const errorCode = error.response?.data?.error?.code || error.code;
+    const errorMessage = error.response?.data?.error?.message || error.message;
+    const errorStatus = error.response?.data?.error?.status;
+
+    // Handle quota exceeded errors specifically
+    if (errorCode === 429 || errorStatus === 'RESOURCE_EXHAUSTED') {
+      // Check if it's a free tier limit for a paid model
+      if (errorMessage?.includes('free_tier') && errorMessage?.includes('limit: 0')) {
+        throw new GeminiApiError(
+          'This model requires a paid API key. Please upgrade your API key or select a different model (Gemini 2.5 Flash, Pro, or Flash Lite).',
+          429,
+          error.response?.data
+        );
+      }
+
+      // General quota exceeded error
+      throw new GeminiApiError(
+        'API quota exceeded. Please try again later or upgrade your API plan.',
+        429,
+        error.response?.data
+      );
+    }
+
+    // Default error handling
     throw new GeminiApiError(
-      `Failed to query stores: ${error.message}`,
-      500,
+      `Failed to query stores: ${errorMessage}`,
+      errorCode || 500,
       error.response?.data
     );
   }

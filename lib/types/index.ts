@@ -252,4 +252,5 @@ export const CHUNKING_PRESETS: Record<ChunkingPreset['name'], ChunkingPreset> = 
   }
 };
 
-export const DEFAULT_MODEL = 'gemini-2.5-flash';
+// Export model configuration from centralized config file
+export { DEFAULT_MODEL, GEMINI_MODELS, type GeminiModel } from '@/lib/config/models';

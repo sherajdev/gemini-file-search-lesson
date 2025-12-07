@@ -52,6 +52,17 @@ A modern web application for exploring Google's Gemini File Search API with RAG 
 - npm
 - Gemini API key ([Get one here](https://aistudio.google.com/apikey))
 
+### ⚠️ Important: API Key Tiers
+
+**Model availability depends on your API key tier:**
+
+- **Free Tier** ✅: Can use Gemini 2.5 Flash, Pro, and Flash Lite
+- **Paid Tier** 💳: Can use all models including Gemini 3 Pro Preview
+
+If you use a free tier API key, some advanced models (like Gemini 3 Pro Preview) will show an error. The application will clearly indicate which models require a paid API key in the query interface.
+
+See the [User Guide](docs/USER_GUIDE.md#model-selection) for detailed information about models and rate limits.
+
 ## Getting Started
 
 ### 1. Clone and Install
